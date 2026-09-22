@@ -23,10 +23,10 @@ class TicketController extends Controller
             $query->where('title', 'like', "%{$search}%")
              ->orWhere('requester_name', 'like', "%{$search}%");
          })
-         ->when($departmentId, function ($query) use ($search) {
+         ->when($departmentId, function ($query) use ($departmentId) {
             $query->where('department_id', $departmentId);
          })
-         ->when($status, function ($query) use ($search) {
+         ->when($status, function ($query) use ($status) {
             $query->where('status', $status);
          })
          ->latest()
@@ -74,7 +74,7 @@ class TicketController extends Controller
     public function edit(Ticket $ticket)
     {
         $departments = Department::orderBy('name', 'asc')->get();
-        return view('tickets.edit', compact('departments'));
+        return view('tickets.edit', compact('ticket', 'departments'));
     }
 
     /**
@@ -82,7 +82,7 @@ class TicketController extends Controller
      */
     public function update(TicketRequest $request, Ticket $ticket)
     {
-        $ticket->update($request->validate());
+        $ticket->update($request->validated());
 
         return redirect()
         ->route('tickets.index')

@@ -85,11 +85,7 @@
                         Filtrar
                     </button>
 
-                    <a
-                        href="{{ route('tickets.index') }}"
-                        class="btn btn-outline-secondary"
-                        title="Limpar Filtros"
-                    >
+                    <a href="{{ route('tickets.index') }}"class="btn btn-outline-secondary"title="Limpar Filtros">
                         <i class="bi bi-x-lg"></i>
                     </a>
                 </div>
