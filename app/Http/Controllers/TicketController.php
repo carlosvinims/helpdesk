@@ -19,7 +19,7 @@ class TicketController extends Controller
          $status = $request->get('status');
 
          $tickets = Ticket::with(['department'])
-         -when($search, function ($query) use ($search) {
+         ->when($search, function ($query) use ($search) {
             $query->where('title', 'like', "%{$search}%")
              ->orWhere('requester_name', 'like', "%{$search}%");
          })
@@ -31,7 +31,7 @@ class TicketController extends Controller
          })
          ->latest()
          ->paginate(6)
-         ->whitchQueryString();
+         ->withQueryString();
 
          $departments = Department::all();
 
@@ -53,7 +53,7 @@ class TicketController extends Controller
      */
     public function store(TicketRequest $request)
     {
-        Ticket::create($request->validate());
+        Ticket::create($request->validated());
 
         return redirect()
         ->route('tickets.index')
