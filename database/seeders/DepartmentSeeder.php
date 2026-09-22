@@ -2,24 +2,81 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Department;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
 class DepartmentSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        DB::table('departments')->insert([
-            'name' => 'TI',
-            'code' => 'TECH',
-              'created_at' => now(),
-            'updated_at' => now(),
+        Department::updateOrCreate(
+            ['code' => 'TI'],
+            [
+                'name' => 'Tecnologia da Informação',
+            ]
+        );
 
-        ]);
+        Department::updateOrCreate(
+            ['code' => 'RH'],
+            [
+                'name' => 'Recursos Humanos',
+            ]
+        );
+
+        Department::updateOrCreate(
+            ['code' => 'FIN'],
+            [
+                'name' => 'Financeiro',
+            ]
+        );
+
+        Department::updateOrCreate(
+            ['code' => 'CONT'],
+            [
+                'name' => 'Contabilidade',
+            ]
+        );
+
+        Department::updateOrCreate(
+            ['code' => 'COM'],
+            [
+                'name' => 'Comercial',
+            ]
+        );
+
+        Department::updateOrCreate(
+            ['code' => 'MKT'],
+            [
+                'name' => 'Marketing',
+            ]
+        );
+
+        Department::updateOrCreate(
+            ['code' => 'LOG'],
+            [
+                'name' => 'Logística',
+            ]
+        );
+
+        Department::updateOrCreate(
+            ['code' => 'ADM'],
+            [
+                'name' => 'Administrativo',
+            ]
+        );
+
+        Department::updateOrCreate(
+            ['code' => 'SAC'],
+            [
+                'name' => 'Atendimento ao Cliente',
+            ]
+        );
+
+        Department::updateOrCreate(
+            ['code' => 'JUR'],
+            [
+                'name' => 'Jurídico',
+            ]
+        );
     }
 }
