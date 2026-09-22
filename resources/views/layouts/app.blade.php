@@ -84,16 +84,19 @@
 </head>
 
 <body>
+
     <div id="wrapper">
 
         <!-- Sidebar / Menu Lateral -->
         <aside id="sidebar-wrapper">
+
             <div class="sidebar-heading text-primary">
                 <i class="bi bi-headset me-2"></i>
                 TechAssist
             </div>
 
             <div class="list-group list-group-flush mt-3">
+
                 <a
                     href="{{ route('tickets.index') }}"
                     class="list-group-item list-group-item-action {{ request()->routeIs('tickets.index') ? 'active' : '' }}"
@@ -109,15 +112,17 @@
                     <i class="bi bi-plus-circle-fill"></i>
                     Abrir Novo Chamado
                 </a>
+
             </div>
 
             <div class="p-3 mt-auto text-muted small position-absolute bottom-0">
+
                 <hr class="border-secondary mb-2">
 
-                <span>
-                    Help Desk v2.0 &bull; SENAI
-                </span>
+                <span>Help Desk v2.0 &bull; SENAI</span>
+
             </div>
+
         </aside>
 
         <!-- Área de Conteúdo Principal -->
@@ -125,24 +130,29 @@
 
             <!-- Navbar Superior -->
             <header class="top-navbar d-flex justify-content-between align-items-center">
+
                 <span class="fw-semibold text-secondary">
                     <i class="bi bi-building me-1"></i>
                     Sistema de Suporte por Departamento
                 </span>
 
                 <div class="d-flex align-items-center gap-2">
+
                     <span class="badge bg-light text-dark border px-3 py-2">
                         <i class="bi bi-person-circle me-1"></i>
                         Operador
                     </span>
+
                 </div>
+
             </header>
 
             <!-- Conteúdo Injetado das Views Filhas -->
             <main class="container-fluid p-4">
 
                 <!-- Mensagens Flash de Sucesso -->
-                @if (session('success'))
+                @if(session('success'))
+
                     <div
                         class="alert alert-success alert-dismissible fade show border-0 shadow-sm mb-4"
                         role="alert"
@@ -157,18 +167,22 @@
                             aria-label="Close"
                         ></button>
                     </div>
+
                 @endif
 
                 @yield('content')
 
             </main>
+
         </div>
+
     </div>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     ></script>
+
 </body>
 
 </html>
