@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TicketController;
@@ -7,6 +7,7 @@ Route::get('/', function () {
     return redirect()->route('tickets.index');
 });
 
+<<<<<<< HEAD
 Route::get('/tickets', [TicketController::class, 'index'])
     ->name('tickets.index');
 
@@ -27,3 +28,8 @@ Route::patch('/tickets/{ticket}/status', [TicketController::class, 'status'])
 
 Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])
     ->name('tickets.destroy');
+=======
+Route::resource('tickets', TicketController::class);
+
+    
+>>>>>>> d788b7efdef19113aba295f277e4b4d011d824a0

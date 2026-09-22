@@ -3,6 +3,7 @@
 @section('title', 'Editar Chamado #' . $ticket->id)
 
 @section('content')
+<<<<<<< HEAD
 
     <div class="row justify-content-center">
 
@@ -10,10 +11,15 @@
 
             <div class="d-flex justify-content-between align-items-center mb-4">
 
+=======
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="fw-bold text-dark mb-0">
                     Editar Chamado #{{ $ticket->id }}
                 </h3>
 
+<<<<<<< HEAD
                 <a
                     href="{{ route('tickets.index') }}"
                     class="btn btn-outline-secondary btn-sm"
@@ -33,10 +39,21 @@
                         method="POST"
                     >
 
+=======
+                <a href="{{ route('tickets.index') }}" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-arrow-left me-1"></i>
+                    Voltar
+                </a>
+            </div>
+
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <form action="{{ route('tickets.update', $ticket->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="row g-3">
+<<<<<<< HEAD
 
                             <div class="col-12">
 
@@ -46,6 +63,10 @@
                                 >
                                     Título do Chamado
                                     <span class="text-danger">*</span>
+=======
+                            <div class="col-12">
+                                <label for="title" class="form-label fw-semibold">
+                                    Título do Chamado <span class="text-danger">*</span>
                                 </label>
 
                                 <input
@@ -57,6 +78,7 @@
                                 >
 
                                 @error('title')
+<<<<<<< HEAD
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -72,6 +94,14 @@
                                 >
                                     Departamento
                                     <span class="text-danger">*</span>
+=======
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="department_id" class="form-label fw-semibold">
+                                    Departamento <span class="text-danger">*</span>
                                 </label>
 
                                 <select
@@ -79,15 +109,19 @@
                                     id="department_id"
                                     name="department_id"
                                 >
+<<<<<<< HEAD
 
                                     @foreach($departments as $dept)
 
+=======
+                                    @foreach ($departments as $dept)
                                         <option
                                             value="{{ $dept->id }}"
                                             {{ old('department_id', $ticket->department_id) == $dept->id ? 'selected' : '' }}
                                         >
                                             {{ $dept->name }}
                                         </option>
+<<<<<<< HEAD
 
                                     @endforeach
 
@@ -109,6 +143,19 @@
                                 >
                                     Status do Atendimento
                                     <span class="text-danger">*</span>
+=======
+                                    @endforeach
+                                </select>
+
+                                @error('department_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="status" class="form-label fw-semibold">
+                                    Status do Atendimento <span class="text-danger">*</span>
+
                                 </label>
 
                                 <select
@@ -116,6 +163,7 @@
                                     id="status"
                                     name="status"
                                 >
+<<<<<<< HEAD
 
                                     <option
                                         value="Aberto"
@@ -156,6 +204,29 @@
                                 >
                                     Solicitante
                                     <span class="text-danger">*</span>
+=======
+                                    <option value="Aberto" {{ old('status', $ticket->status) == 'Aberto' ? 'selected' : '' }}>
+                                        Aberto
+                                    </option>
+
+                                    <option value="Em Atendimento" {{ old('status', $ticket->status) == 'Em Atendimento' ? 'selected' : '' }}>
+                                        Em Atendimento
+                                    </option>
+
+                                    <option value="Concluído" {{ old('status', $ticket->status) == 'Concluído' ? 'selected' : '' }}>
+                                        Concluído
+                                    </option>
+                                </select>
+
+                                @error('status')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="requester_name" class="form-label fw-semibold">
+                                    Solicitante <span class="text-danger">*</span>
+
                                 </label>
 
                                 <input
@@ -167,6 +238,7 @@
                                 >
 
                                 @error('requester_name')
+<<<<<<< HEAD
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -182,6 +254,15 @@
                                 >
                                     Prioridade
                                     <span class="text-danger">*</span>
+=======
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="priority" class="form-label fw-semibold">
+                                    Prioridade <span class="text-danger">*</span>
+
                                 </label>
 
                                 <select
@@ -189,6 +270,7 @@
                                     id="priority"
                                     name="priority"
                                 >
+<<<<<< HEAD
 
                                     <option
                                         value="Baixa"
@@ -236,6 +318,33 @@
                                 >
                                     Descrição
                                     <span class="text-danger">*</span>
+
+                                    <option value="Baixa" {{ old('priority', $ticket->priority) == 'Baixa' ? 'selected' : '' }}>
+                                        Baixa
+                                    </option>
+
+                                    <option value="Média" {{ old('priority', $ticket->priority) == 'Média' ? 'selected' : '' }}>
+                                        Média
+                                    </option>
+
+                                    <option value="Alta" {{ old('priority', $ticket->priority) == 'Alta' ? 'selected' : '' }}>
+                                        Alta
+                                    </option>
+
+                                    <option value="Urgente" {{ old('priority', $ticket->priority) == 'Urgente' ? 'selected' : '' }}>
+                                        Urgente
+                                    </option>
+                                </select>
+
+                                @error('priority')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-12">
+                                <label for="description" class="form-label fw-semibold">
+                                    Descrição <span class="text-danger">*</span>
+
                                 </label>
 
                                 <textarea
@@ -246,6 +355,7 @@
                                 >{{ old('description', $ticket->description) }}</textarea>
 
                                 @error('description')
+<<<<<<< HEAD
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -284,4 +394,26 @@
 
     </div>
 
+@endsection
+=======
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-12 text-end pt-3">
+                                <a href="{{ route('tickets.index') }}" class="btn btn-light me-2">
+                                    Cancelar
+                                </a>
+
+                                <button type="submit" class="btn btn-primary px-4">
+                                    <i class="bi bi-save me-1"></i>
+                                    Salvar Alterações
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
